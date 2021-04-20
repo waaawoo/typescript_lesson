@@ -118,6 +118,21 @@ const PC1: PC = {
   OSType: OS.windows, // 0番が割り当てられる
 };
 
+// 型の互換性 データがtestになっている
+const comp1 = "test"
+
+// string型へtest型を代入は可能
+let comp2: string = comp1;
+
+let comp3: string = "test";
+// 以下の書き方はできない
+// let comp4: 'test' = comp3;
+
+let funcComp1 = (x:number) => {}
+let funcComp2 = (x:string) => {}
+// データ型の異なる引数を持つ関数は代入できない
+// funcComp1 = funcComp2
+
 console.log(PC1);
 
 function App() {
