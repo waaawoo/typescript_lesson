@@ -25,10 +25,19 @@ const TestComponent: React.FC<Props> = (props) => {
     name: "name"
   });
 
+  // ユーザー入力state から文字を初期値にする
+  const [inputData, setInputData] = useState("");
+
+  // 関数定義 型の指定はイベントのデータ型を指定する
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setInputData(e.target.value);
+
   return (
     <div>
       <h1>{props.text}</h1>
       <h1> {count} </h1>
+      <input type="text" value={inputData} onChange={handleInputChange} />
+      <h1>{ inputData }</h1>
     </div>
   )
 }
