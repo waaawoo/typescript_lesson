@@ -1,6 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+//jsonのテストデータをインポート
+import Data from './data.json'
+
+// 読み込んだjsonデータの型を宣言している
+type USERS = typeof Data;
+
 
 // 定数定義はリテラル型
 const name = 'hello';
@@ -165,6 +171,8 @@ const gen5 = funcGen('test');
 function funcGen1<T extends string | null>(props: T){
   return {value: props};
 }
+
+// json place holderにtestデータがある
 
 const gen8 = funcGen1("Hello");
 // 数値型を指定していないので使えない
