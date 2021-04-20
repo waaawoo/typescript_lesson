@@ -133,7 +133,58 @@ let funcComp2 = (x:string) => {}
 // データ型の異なる引数を持つ関数は代入できない
 // funcComp1 = funcComp2
 
-console.log(PC1);
+// Generics ジェネリックスを使う場合は変数名の後にエイリアスを指定＜T＞
+interface GEN<T>{
+  // keyのTは定まっていない、テンプレートを作っている
+  item: T;
+}
+// 使うときに指定する<>をつけないとエラーになる
+const gen0: GEN<string> = {item: "hello"};
+
+// ＜＞をエイリアスではなくデフォルトの型をしてできる
+interface GEN1<T = string>{
+  item: T;
+}
+// 型を指定する必要はなくなる
+const gen1: GEN1 = {item: "hello"};
+
+// stringとnumberしか指定できないようにする
+interface GEN2<T extends string | number>{
+  item: T;
+}
+const gen4: GEN<string> = {item: "a"};
+
+// 関数に対するジェネリックス
+function funcGen<T>(props: T){
+  return {item: props}
+}
+
+// funcGen<string>は明示的に書くことも可能
+const gen5 = funcGen('test');
+
+function funcGen1<T extends string | null>(props: T){
+  return {value: props};
+}
+
+const gen8 = funcGen1("Hello");
+// 数値型を指定していないので使えない
+// const gen9 = funcGen1(12);
+
+interface Props{
+  price: number;
+}
+
+// Propsインターフェースの型しか受け付けない
+function funcGen3<T extends Props>(props: T){
+  return { value: props.price }
+}
+
+const gen10 = funcGen3({price: 10});
+// funcGen3のアロー関数での記載方法
+const funcGen4 = <T extends Props>(props: T) => {
+  return { value: props.price }
+}
+
 
 function App() {
   return (
