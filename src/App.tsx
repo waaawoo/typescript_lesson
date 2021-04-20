@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 //jsonのテストデータをインポート
 import Data from './data.json'
+import TestComponent from './TestComponent';
 
 // 読み込んだjsonデータの型を宣言している
 type USERS = typeof Data;
@@ -193,15 +194,28 @@ const funcGen4 = <T extends Props>(props: T) => {
   return { value: props.price }
 }
 
+// アロー関数表記に変更する
+// function App() {
+//   return (
+//     <div className="App">
+//       <header className="App-header">
 
-function App() {
+//       </header>
+//     </div>
+//   );
+// }
+// React.FC ファンクションコンポーネント
+// この記載は決まり
+const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-
-      </header>
-    </div>
+       <header className="App-header">
+         {/* コンポーネントの呼び出し */}
+          <TestComponent text=""/>
+       </header>
+     </div>
   );
-}
+};
+
 
 export default App;
