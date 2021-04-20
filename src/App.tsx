@@ -51,6 +51,15 @@ const userA: USER = {
 
 }
 
+// UnionTypes 指定以外のタイプは受け付けなくなる
+let value: boolean | number
+// 受け取るデータ型を制限
+value = true
+
+// 配列の場合 数値と文字列のみ受け付ける
+let arrayUni: (number | string)[];
+arrayUni = [];
+
 
 function App() {
   return (
