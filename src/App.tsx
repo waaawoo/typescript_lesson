@@ -64,6 +64,15 @@ arrayUni = [];
 let company: "Facebook" | "Google" | "Amazon"
 company = "Amazon";
 
+// typeof 宣言済みの型を継承し型付けをする
+let msg: string = "Hi";
+let msg2: typeof msg;
+msg2 = "typeof"
+
+let animal = {cat: "small cat"};
+// cat以外入力不可
+let newAnimal: typeof animal = {cat: "big cat"}
+
 
 function App() {
   return (
