@@ -64,7 +64,7 @@ arrayUni = [];
 let company: "Facebook" | "Google" | "Amazon"
 company = "Amazon";
 
-// typeof 宣言済みの型を継承し型付けをする
+// typeof 宣言済みの型を継承し型付けをする ＊使い所としてはjsonのオブジェクトを継承してくれる
 let msg: string = "Hi";
 let msg2: typeof msg;
 msg2 = "typeof"
@@ -72,6 +72,32 @@ msg2 = "typeof"
 let animal = {cat: "small cat"};
 // cat以外入力不可
 let newAnimal: typeof animal = {cat: "big cat"}
+
+
+// keyof
+type KEYS ={
+  primary: string,
+  secondary: string;
+};
+
+// Union typesでの型付けになる
+let key: keyof KEYS;
+// 以下の値しか受け付けない
+key = "primary"
+key = 'secondary'
+
+// typeof + keyof
+// 定義ずみオブジェクト
+const SPORTS = {
+  soccer: "Soccer",
+  baseball: "Baseball"
+}
+
+// typeofでデータ構造を継承 typeofでkeyのを許容
+let keySports: keyof typeof SPORTS;
+// 以下の値しか受け付けない
+keySports = "soccer"
+keySports = "baseball"
 
 
 function App() {
