@@ -60,6 +60,10 @@ value = true
 let arrayUni: (number | string)[];
 arrayUni = [];
 
+// Literal Types 指定したリテラル以外は受け付けなくなる
+let company: "Facebook" | "Google" | "Amazon"
+company = "Amazon";
+
 
 function App() {
   return (
