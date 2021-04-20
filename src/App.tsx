@@ -30,6 +30,28 @@ const func1 = (x: number, y: number):number => {
   return x + y;
 }
 
+// Intersection Types 二つのオブジェクトを結合したタイプ
+type PROFILE = {
+  age: number,
+  city: string;
+}
+
+type LOGIN = {
+  username: string,
+  password: string
+}
+// タイプを結合する &で結合する
+type USER = PROFILE & LOGIN;
+// 実際にデータを作る場合
+const userA: USER = {
+  age: 20,
+  city: "Tokyo",
+  username: "name",
+  password: "pass"
+
+}
+
+
 function App() {
   return (
     <div className="App">
