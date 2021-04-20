@@ -99,6 +99,26 @@ let keySports: keyof typeof SPORTS;
 keySports = "soccer"
 keySports = "baseball"
 
+// enum イーナム 自動で連番をつけてくれる
+enum OS{
+  windows, //0
+  Mac,     //1
+  Linux    //2
+}
+
+// OSを管理するオブジェクト作成
+interface PC{
+  id: number;
+  OSType: OS;
+}
+
+//
+const PC1: PC = {
+  id: 1,
+  OSType: OS.windows, // 0番が割り当てられる
+};
+
+console.log(PC1);
 
 function App() {
   return (
